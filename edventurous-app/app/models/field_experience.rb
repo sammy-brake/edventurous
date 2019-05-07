@@ -1,0 +1,2 @@
+class FieldExperience < ApplicationRecord
+end

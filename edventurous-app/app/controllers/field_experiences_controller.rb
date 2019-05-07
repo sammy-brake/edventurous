@@ -1,0 +1,2 @@
+class FieldExperiencesController < ApplicationController
+end
