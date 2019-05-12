@@ -50,3 +50,13 @@
     margin-right: 200px;
     text-align: center;
   }
+
+  .search {
+    border-color: rgb(190, 248, 115);
+    border-width: 5px;
+    border-style: double;
+    border-radius: 5px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+  }

@@ -3,7 +3,7 @@
 <div class="welcome">
 <% if !logged_in? %>
 <h1>Welcome to Edventurous</h1>
-<h3><%= link_to "Sign In", signin_path, class: "rootbtn" %>  or <%= link_to "Sign Up", signup_path, class: "rootbtn" %> </h3>
+<h3><%= link_to "Sign In", signin_path, class: "rootbtn" %>  or <%= link_to "Sign Up", signin_path, class: "rootbtn" %> </h3>
 <br>
 <% else %>
 <h1>Welcome to Edventurous, <%= current_user.name %></h1>

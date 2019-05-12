@@ -1,6 +1,26 @@
 <div class= "exp-head">
 <h1>Field Experiences</h1>
 </div>
+<div class="experience">
+<% if !flash.empty? %>
+    <div id="flash"> 
+        <% flash.keys.each do |k| %> 
+            <div class="<%= k %>">
+                <%= flash[k] %>
+            </div>  
+        <% end %>   
+      <%= link_to "Back to Experiences", field_experiences_path, class: "fieldbtn" %>
+
+    </div>
+    <br>
+<% end %>
+
+<%= form_tag("/field_experiences", method: "get") do %>
+  <%= label_tag(:subject, "What subject would you like to see?")%>
+  <%= text_field_tag(:subject)%>
+  <%= submit_tag("Search") %>
+  <%end%>
+  </div>
 
 <% @experiences.each do |experience| %>
     <div class= "experience">
