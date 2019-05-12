@@ -1,0 +1,5 @@
+<h1><%= @experience.title %></h1>
+
+<% if logged_in? %>
+<%= link_to 'Log Out', session_path, method: :delete %>
+<% end %>

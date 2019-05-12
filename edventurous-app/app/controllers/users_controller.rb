@@ -1,16 +1,42 @@
 class UsersController < ApplicationController
 
-    # def show 
-    #     @user = User.find(params[:id])
-    #### below is if I want a user to be able to buid a field exp through show page
-    #     @field_experience = @user.field_experiences.build
-    # end 
+    def show 
+        @user = User.find(params[:id])
+        @bookings = @user.bookings
+    end 
 
-    # def create 
-    # end 
+    def new 
+        @user = User.new 
+    end 
 
-    # private 
+    def create 
+       @user = User.create(user_params)
+       if @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+       else 
+        render :new
+       end 
+    end 
 
-    # def user_params
-    # end 
+    def facebook 
+        
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.password = auth['uid']   # Secure Random Hex
+          end
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
+    end 
+
+    private 
+
+    def user_params
+        params.require(:user).permit(:name, :subject, :password, :uid, :email)
+    end 
+
+    def auth
+        request.env['omniauth.auth']
+      end
 end

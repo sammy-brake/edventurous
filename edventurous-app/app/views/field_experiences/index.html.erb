@@ -1,0 +1,29 @@
+<div class= "exp-head">
+<h1>Field Experiences</h1>
+</div>
+
+<% @experiences.each do |experience| %>
+    <div class= "experience">
+  <h2>  <%= experience.title %> </h1>
+  <h3>  <%= experience.location %> </h3>
+  <h5>Subject: <%= experience.subject %></h5>
+  <h5>Grade Levels:  <%= experience.gradelevels %></h5>
+  <p>  <%= experience.summary %> <br>
+  
+  <% if logged_in? %>
+  <%= link_to "Schedule this Experience", new_field_experience_booking_path(experience), class: "fieldbtn" %>
+  <%= link_to "Past Trips", field_experience_bookings_path(experience.id), class: "fieldbtn"%></p>
+  </div>
+    <%else %>
+    </div><br>
+  <%end%>
+  
+<%end%>
+<div class="exp-head">
+<% if logged_in? %>
+<%= link_to 'Home', user_path(current_user), class: 'logbtn'%>
+<%= link_to 'Log Out', session_path, method: :delete, class: "logbtn" %>
+<% else %>
+<%= link_to 'Home', root_url, class: 'logbtn'%>
+<% end %>
+</div>

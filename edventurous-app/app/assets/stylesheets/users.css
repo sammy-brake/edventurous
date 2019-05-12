@@ -1,5 +1,6 @@
-
-
+/* // Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/ */
 
 
 body {
@@ -7,34 +8,27 @@ body {
     
   }
 
-  .booking {
-    background-color: rgb(190, 248, 115);
-    border-color: rgb(240, 209, 184);
-    border-width: 5px;
-    border-style: double;
-    border-radius: 5px;
-    margin-left: 200px;
-    margin-right: 200px;
-    text-align: center;
-
-  }
-
-  .no {
-  
+  .user {
+   
     border-color: rgb(190, 248, 115);
-    border-width: 5px;
+    border-width: 7px;
     border-style: double;
     border-radius: 5px;
     margin-left: 200px;
     margin-right: 200px;
     text-align: center;
+}
 
+.break {
+    text-align: center; 
 
-  }
+    margin-left: 200px;
+    margin-right: 200px;
+}
 
-.welcome {
-    background-color: rgb(190, 248, 115);
-    border-color: rgb(240, 209, 184);
+.booking {
+    
+    border-color: rgb(190, 248, 115);
     border-width: 5px;
     border-style: double;
     border-radius: 5px;
@@ -99,14 +93,30 @@ body {
   display: inline-block;
   }
 
-  
 
-  .dates {
-    
-    background-color: white;
-    color: #f44336;
+
+  .no {
+  
+    border-color: rgb(190, 248, 115);
+    border-width: 5px;
+    border-style: double;
+    border-radius: 5px;
     margin-left: 200px;
     margin-right: 200px;
     text-align: center;
   }
  
+
+  .submitbtn {
+    border-style: double;
+    border-width: .5px;
+    background-color: #f44336;
+    padding: 10px 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    }
+   

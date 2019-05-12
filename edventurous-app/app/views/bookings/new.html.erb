@@ -1,0 +1,27 @@
+<% if logged_in? %>
+<div class="booking">
+<h3>Schedule your Experience with <%=@booking.field_experience.title%></h3>
+
+
+
+<%= form_for @booking do |f| %>
+<%= f.hidden_field :field_experience_id %>
+<%= f.hidden_field :user_id %>
+<%= f.date_field :date %>
+<%= f.submit %>
+<%end%>
+</div>
+<br>
+<div class="footer">
+<%= link_to 'Back to Experiences', field_experiences_path, class: "rootbtn" %>  
+<%= link_to 'Home', user_path(current_user), class: 'rootbtn' %>
+<%= link_to 'Log Out', session_path, method: :delete, class: 'rootbtn' %>
+
+</div>
+<%else%>
+<div class="no">
+<h3>Create an Account to Schedule your Experience</h3>
+<h3><%= link_to "Sign In", signin_path, class: "rootbtn" %>  or <%= link_to "Sign Up", signup_path, class: "rootbtn" %> </h3>
+</div>
+<%end%>
+

@@ -1,0 +1,18 @@
+<div class="no">
+<h1>Sign Up!</h1>
+
+<%= render 'errors' %>
+
+<%= form_for @user do |f| %>
+    
+    <%= f.email_field :email, value:'Email' %>
+    <%= f.text_field :name, value:'Name' %></p>
+    <p>Password:</p>
+    <%= f.password_field :password %></p>
+    <%= f.submit class: 'submitbtn' %>
+<%end%>
+<h2>Or</h2>
+<%= link_to('Sign up with Facebook!', '/auth/facebook', class: "submitbtn") %>
+<br>
+<br>
+</div>

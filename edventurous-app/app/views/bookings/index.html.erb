@@ -1,0 +1,22 @@
+<div class="booking">
+<h2> View the dates of your past and currently scheduled trips to <%= @experience.title %> </h2>
+</div>
+<ul>
+<% @bookings.each do |booking| %>
+<div class="dates">
+   <li> <%=booking.date.strftime("%b %d, %Y") %></li>
+   </div>
+<%end%>
+</ul>
+</div>
+
+<div class="welcome">
+<% if logged_in? %>
+<%= link_to 'Home', user_path(current_user), class: 'rootbtn'%>
+<%= link_to "All Experiences", field_experiences_path, class: 'rootbtn'%>
+<%= link_to 'Log Out', session_path, method: :delete, class: "rootbtn" %>
+<% else %>
+<%= link_to 'Home', root_url, class: 'rootbtn'%>
+<% end %>
+</div>
+
