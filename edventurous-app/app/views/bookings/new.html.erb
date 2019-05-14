@@ -1,7 +1,15 @@
 <% if logged_in? %>
 <div class="booking">
 <h3>Schedule your Experience with <%=@booking.field_experience.title%></h3>
-
+<% if !flash.empty? %>
+    <div id="flash"> 
+        <% flash.keys.each do |k| %> 
+            <div class="<%= k %>">
+                <%= flash[k] %>
+            </div>  
+        <% end %>   
+    </div>
+<% end %>
 
 
 <%= form_for @booking do |f| %>

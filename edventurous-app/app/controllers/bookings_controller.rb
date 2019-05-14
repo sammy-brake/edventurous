@@ -10,12 +10,14 @@ class BookingsController < ApplicationController
         @booking = Booking.new
         @booking.user_id = session[:user_id]
         @booking.date = params[:booking][:date]
-        @booking.field_experience = FieldExperience.find_by(id: params[:booking][:field_experience_id])
-        if @booking.save 
+        @experience = FieldExperience.find_by(id: params[:booking][:field_experience_id])
+        @booking.field_experience = @experience
+        if @booking.save
             redirect_to user_path(@booking.user_id)
         else 
-            flash[:error] = "Booking failed, please try again"
-            redirect_to root_path 
+            binding.pry 
+            flash[:error] = "Booking failed, please select a date and try again."
+            redirect_to new_field_experience_booking_path(@experience)
         end 
     end 
 

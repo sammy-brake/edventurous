@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :bookings, only: [:new, :create]
-  resources :field_experiences, only: [:show, :index] do 
-    resources :bookings, only: [:new, :create, :show, :index]
+  resources :field_experiences, only: [:show, :index, :new, :create] do 
+    resources :bookings, only: [:new, :show, :index]
   end 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
