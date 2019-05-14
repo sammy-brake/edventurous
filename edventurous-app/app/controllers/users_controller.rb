@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
     def show 
-        @user = User.find(params[:id])
+       
+        @user = User.find_by(id: session[:user_id])
         @bookings = @user.bookings
+        
+
+    
     end 
 
     def new 

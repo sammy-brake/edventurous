@@ -3,7 +3,7 @@
 
 <% if logged_in? %>
 <div class="user">
-<h1> Hello, <%=@user.name%> </h1>
+<h1> Hello, <%=@user.name.titleize%> </h1>
 <%= link_to 'Schedule an Experience', field_experiences_path, class: "rootbtn" %> 
 <br>
 <br>
