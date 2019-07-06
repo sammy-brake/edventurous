@@ -15,22 +15,19 @@
 <div class="user">
 <h1> Hello, <%=@user.name.titleize%> </h1>
 <%= link_to 'Schedule an Experience', field_experiences_path, class: "rootbtn" %> 
+<%= link_to 'Create an Experience', new_field_experience_path, class: "rootbtn" %>
+<%= link_to 'View Schedule', bookings_path, class: "rootbtn", id: "schedule"%>
 <br>
 <br>
 </div>
 <br>
-<div class="break">
-<h3> Scheduled Bookings </h3>
+<div class="bookings">
+            
 </div>
-<% @bookings.each do |booking| %>
-    <div class="booking">
-    <h3><%= booking.field_experience.title %></h3>
-    <p><%= booking.field_experience.summary %></p>
-    <h5>Date: <%= booking.date.strftime("%b %d, %Y") %></h5>
-    </div>
-    <br>
-    <%end%>
-<%end%>
+
+
+
+
 <div class="footer">
 <% if logged_in? %>
 <%= link_to 'Browse Experiences', field_experiences_path, class: "rootbtn" %>  
@@ -40,4 +37,5 @@
 <% else %>
 <h1>You should log in or create an account </h1>
 <%= link_to "Home", root_path, class: 'rootbtn'%>
+<% end %>
 <% end %>

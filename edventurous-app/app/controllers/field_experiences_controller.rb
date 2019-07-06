@@ -8,7 +8,7 @@ class FieldExperiencesController < ApplicationController
         
         @experience = FieldExperience.new(experience_params)
         if @experience.save 
-            redirect_to field_experiences_path
+            render json: @experience, status: 201
         else 
             render :new
         end 
@@ -28,7 +28,22 @@ class FieldExperiencesController < ApplicationController
         
      else 
         @experiences = FieldExperience.all
+        respond_to do |format|
+
+            format.html 
+            format.json { render json: @experiences }
+          
+           end
      end 
+
+     def destroy 
+        
+        @experience = FieldExperience.find(params[:id])
+        @experience.destroy 
+        redirect_to field_experiences_path
+     end 
+
+     
     end 
 
     private 

@@ -1,5 +1,7 @@
 <div class="booking">
-<h2> View the dates of your past and currently scheduled trips to <%= @experience.title %> </h2>
+<% if @experience %>
+<h2> View the dates of your past and currently scheduled trips to <%=@experience.title%>  </h2>
+<%end%> 
 </div>
 <ul>
 <% @bookings.each do |booking| %>
@@ -19,4 +21,5 @@
 <%= link_to 'Home', root_url, class: 'rootbtn'%>
 <% end %>
 </div>
+
 

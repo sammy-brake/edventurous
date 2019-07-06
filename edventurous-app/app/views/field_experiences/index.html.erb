@@ -33,6 +33,8 @@
   <% if logged_in? %>
   <%= link_to "Schedule this Experience", new_field_experience_booking_path(experience), class: "fieldbtn" %>
   <%= link_to "Past Trips", field_experience_bookings_path(experience.id), class: "fieldbtn"%></p>
+  <%= link_to 'Delete Experience', field_experience_path(experience), method: :delete, data: { confirm: 'Are you sure?' } %>
+  
   </div>
     <%else %>
     </div><br>

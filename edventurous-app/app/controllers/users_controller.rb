@@ -1,13 +1,16 @@
 class UsersController < ApplicationController
 
     def show 
-       
         @user = User.find_by(id: session[:user_id])
         @bookings = @user.bookings
-        
+        respond_to do |format|
 
-    
+            format.html 
+            format.json { render json: @user }
+          
+           end
     end 
+
 
     def new 
         @user = User.new 

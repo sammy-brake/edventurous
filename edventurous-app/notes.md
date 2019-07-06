@@ -4,10 +4,11 @@
 
 Need To Do:
 
+I created the form, route, and controller actions for creating a new Field experience
 
-8. Create my scope methods - A user can search to find field experiences that have to do with a certain subject, grade, or location. https://github.com/hansenjl/CRUD-Pets This app is supposed to have a good example of using the form_tag and scope methods to do a search. The search would be a get request. 
-
-9. Displaying error messages - look for the flatiron lab "validations with form_for" for easy error message display 
+- need to add model validations for creating the field experience
+-need to add links to views so users can create field experience
+-add "created by" to field experience, so users can see who created a particular experience
 
 
 

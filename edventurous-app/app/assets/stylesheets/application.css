@@ -99,6 +99,21 @@ body {
   display: inline-block;
   }
 
+  .schedulebtn {
+    background-color: white;
+  color: #f44336;
+  border-color: #f44336;
+  border-style: dotted;
+  border-width: 5px;
+  padding: 14px 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+
+  }
+
   
 
   .dates {
@@ -110,3 +125,18 @@ body {
     text-align: center;
   }
  
+  .experience {
+   
+    border-color: rgb(190, 248, 115);
+    border-width: 5px;
+    border-style: double;
+    border-radius: 5px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+    
+  }
+
+  h2 {
+    text-decoration: underline;
+  }

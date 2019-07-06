@@ -1,14 +1,33 @@
+<h1>Create a New Experience</h1>
+<div class="form">
 <%= form_for(@experience) do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :subject %>
-<%= f.text_field :subject %>
-<%= f.label :location %>
-<%= f.text_field :location %>
-<%= f.label :summary %>
-<%= f.text_field :summary %>
-<%= f.label :gradelevels %>
-<%= f.text_field :gradelevels %>
+<%= f.label :title %><br>
+<%= f.text_field :title %><br>
+<%= f.label :subject %><br>
+<%= f.text_field :subject %><br>
+<%= f.label :location %><br>
+<%= f.text_field :location %><br>
+<%= f.label :summary %><br>
+<%= f.text_field :summary %><br>
+<%= f.label :grades %><br>
+<%= f.text_field :gradelevels %><br>
 <%=f.submit%>
-
 <%end%>
+</div>
+
+<div class="experience">
+<h2 id="title"></h2>
+<h3 id="subject"></h3>
+<h3 id="location"></h3>
+<p id="summary"></p>
+<h5 id="gradelevels"></h5>
+
+</div>
+<div class="exp-head">
+<% if logged_in? %>
+<%= link_to 'Home', user_path(current_user), class: 'logbtn'%>
+<%= link_to 'Log Out', session_path, method: :delete, class: "logbtn" %>
+<% else %>
+<%= link_to 'Home', root_url, class: 'logbtn'%>
+<% end %>
+</div>
