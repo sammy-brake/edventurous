@@ -1,7 +1,7 @@
 
 
 <div class="welcome">
-# display links to sign in, if signed out
+
 <% if !logged_in? %>
 <h1>Welcome to Edventurous</h1>
 <h3><%= link_to "Sign In", signin_path, class: "rootbtn" %>  or <%= link_to "Sign Up", signup_path, class: "rootbtn" %> </h3>
@@ -14,7 +14,7 @@
 
 <div class="about">
 <h3>
-# if signed in, display link to show page
+
 <% if logged_in? %>
 <%= link_to "Home", user_path(current_user), class: "rootbtn" %>
 <%end%>
@@ -22,7 +22,7 @@
 </h3>
 </div>
 
-# create a div to attach experiences with JQuery
+
 <div class="experience">
 </div>
 

@@ -1,17 +1,12 @@
 // hijack the "schedule" button on user show page to display the user's bookings
-
-
-
 $(document).ready(function() {
     $("#schedule").on("click", function(e){
        $("#schedule").hide();
        $.get("/bookings.json").done(function(json){
-        // create a new booking instance by passing json
         $("div.bookings").append("<h1 class='break'> Scheduled Bookings </h1>")
         $("div.bookings").append("<div class='booking'>")
-           json.forEach(function(info){
-            debugger 
-            //under here there is an issue
+        // create a new booking instance by passing json
+           json.forEach(function(info){ 
                let newBooking = new Booking(info);
                newBooking.date = newBooking.formatDate();
                 let bookingHtml = newBooking.formatIndex();
