@@ -15,6 +15,8 @@ class BookingsController < ApplicationController
         @booking.field_experience = @experience
         
         if @booking.save
+            
+            flash[:success] = "Booking scheduled"
             redirect_to user_path(@booking.user_id)
         else 
             flash[:error] = "Booking failed, please select a date and try again."

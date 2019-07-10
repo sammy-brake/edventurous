@@ -1,7 +1,6 @@
 // hijack the "schedule" button on user show page to display the user's bookings
 
 
-// make a constructor for booking 
 
 $(document).ready(function() {
     $("#schedule").on("click", function(e){

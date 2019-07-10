@@ -3,11 +3,10 @@ class UsersController < ApplicationController
     def show 
         @user = User.find_by(id: session[:user_id])
         @bookings = @user.bookings
+        # allow user show page to access json bookings
         respond_to do |format|
-
             format.html 
             format.json { render json: @user }
-          
            end
     end 
 
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
     end 
 
     def facebook 
-        
+        # oath for facebook
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.name = auth['info']['name']
             u.email = auth['info']['email']

@@ -1,22 +1,21 @@
+// wrap in document ready function so js will load after DOM
 
 $(document).ready(function() {
     // hijack submit button for new field experiences so we can submit and display without refresh
     $('form.new_field_experience').submit(function(e) {
         e.preventDefault();
+        // serialize the values posted by the form
         let values = $(this).serialize();
- 
         let posting = $.post('/field_experiences', values);
         posting.done(function(experience) {
-            
            let newExperience = new FieldExperience(experience)
            let experienceHtml = newExperience.formatShow();
            $('div.experience').append(experienceHtml);
-
           });
     })
 
 
-// //display index on homepage 
+// //display index on homepage. Did not use constructor just app'd to the DOM
     $("#auto").on("click", function(e){
         $("#auto").hide();
        $.get("/field_experiences.json").done(function(json){
@@ -26,7 +25,6 @@ $(document).ready(function() {
                 .append("<h5>" + experience["subject"] + "</h5>")
                 .append("<h5> Grade Levels: " + experience["gradelevels"] + "</h5>")
                 .append("<p>" + experience["summary"] + "</p>")
-               
              })
          })
         e.preventDefault()

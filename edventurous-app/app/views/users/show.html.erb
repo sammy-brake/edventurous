@@ -2,15 +2,7 @@
 
 
 <% if logged_in? %>
-<% if !flash.empty? %>
-    <div id="flash"> 
-        <% flash.keys.each do |k| %> 
-            <div class="<%= k %>">
-                <%= flash[k] %>
-            </div>  
-        <% end %>   
-    </div>
-<% end %>
+
 
 <div class="user">
 <h1> Hello, <%=@user.name.titleize%> </h1>
@@ -21,6 +13,16 @@
 <br>
 </div>
 <br>
+<% if !flash.empty? %>
+    <div id="flash-user"> 
+        <% flash.keys.each do |k| %> 
+            <div class="<%= k %>">
+                <%= flash[k] %>
+                
+            </div>  
+        <% end %>   
+    </div>
+<% end %>
 <div class="bookings">
             
 </div>
