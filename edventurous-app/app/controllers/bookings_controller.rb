@@ -31,23 +31,22 @@ class BookingsController < ApplicationController
         @user = User.find(session[:user_id])
         @bookings = @user.bookings
         respond_to do |format|
-
                     format.html 
                     format.json { render json: @bookings }
-                  
+
                    end
         
     end 
    
 
     def show 
-            
             @booking = Booking.find(params[:id])
             @field_experience = FieldExperience.find(params[:field_experience_id])
+            # binding.pry 
         respond_to do |format|
 
             format.html 
-            format.json { render json: @experiences }
+            format.json { render json: @booking }
           
            end
 

@@ -20,6 +20,17 @@ $(document).ready(function() {
        e.preventDefault()
     })
 
+    $("#hijack").on("click", function(e){
+        $.get(this.href + ".json").done(function(json){
+            console.log(json)
+            debugger
+        })
+        
+        // $('div.show').append(<p>hi</p>)
+        console.log(this);
+        e.preventDefault();
+    })
+
 })
 
 function Booking(info) {

@@ -6,7 +6,8 @@
 <ul>
 <% @bookings.each do |booking| %>
 <div class="dates">
-   <li> <%=booking.date.strftime("%b %d, %Y") %></li>
+   <%=link_to "#{booking.date.strftime('%b %d, %Y')}: Click for More", href="/field_experiences/#{@experience.id}/bookings/#{booking.id}", id: "hijack"%>
+   <div id="show"></div>
    </div>
 <%end%>
 </ul>
