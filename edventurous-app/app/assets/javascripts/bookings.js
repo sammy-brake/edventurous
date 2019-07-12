@@ -2,28 +2,31 @@
 $(document).ready(function() {
     $("#schedule").on("click", function(e){
        $("#schedule").hide();
-       $.get("/bookings.json").done(function(json){
+       $.get(this.href + ".json").done(function(json){
         $("div.bookings").append("<h1 class='break'> Scheduled Bookings </h1>")
         $("div.bookings").append("<div class='booking'>")
         // create a new booking instance by passing json
-           json.forEach(function(info){ 
-               let newBooking = new Booking(info);
-               newBooking.date = newBooking.formatDate();
-                let bookingHtml = newBooking.formatIndex();
-                $('div.booking').append(bookingHtml);
+            json.bookings.forEach(function(info){
+                let newBooking = new Booking(info);
+                newBooking.date = newBooking.formatDate();
+                let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                let shortDate = newBooking.date.toLocaleDateString("en-US", options);
+                
+                $('div.booking').append(
+                    `<a id="hijack" href='/field_experiences/${newBooking.field_experience_id}/bookings/${newBooking.id}'>${shortDate}</a><br/>`
+                )
             })
        })
        e.preventDefault()
-
-        
     })
+
 })
 
 function Booking(info) {
     this.id = info.id;
     this.date = info.date;
-    this.field_experience_id = info.field_experience.id;
-    this.field_experience_title = info.field_experience.title;
+    this.field_experience_id = info.field_experience_id
+    
 }
 
 Booking.prototype.formatDate = function() {
@@ -31,10 +34,4 @@ Booking.prototype.formatDate = function() {
     return this.date 
 };
 
-Booking.prototype.formatIndex = function() {
-    let bookingHtml = `
-    <h2>${this.field_experience_title}</h2>
-    <h3>${this.date}</h3>
-    `
-    return bookingHtml;
-};
+

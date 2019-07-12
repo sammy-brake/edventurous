@@ -41,7 +41,9 @@ class BookingsController < ApplicationController
    
 
     def show 
-
+            
+            @booking = Booking.find(params[:id])
+            @field_experience = FieldExperience.find(params[:field_experience_id])
         respond_to do |format|
 
             format.html 

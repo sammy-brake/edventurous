@@ -8,7 +8,7 @@
 <h1> Hello, <%=@user.name.titleize%> </h1>
 <%= link_to 'Schedule an Experience', field_experiences_path, class: "rootbtn" %> 
 <%= link_to 'Create an Experience', new_field_experience_path, class: "rootbtn" %>
-<%= link_to 'View Schedule', bookings_path, class: "rootbtn", id: "schedule"%>
+<%= link_to 'View Schedule', user_path(current_user), class: "rootbtn", id: "schedule"%>
 <br>
 <br>
 </div>
