@@ -23,12 +23,17 @@
   </div>
 
 <% @experiences.each do |experience| %>
+  
     <div class= "experience">
-  <h2>  <%= experience.title %> </h1>
-  <h3>  <%= experience.location %> </h3>
+  <h2 id="show<%=experience.id%>">  <%= experience.title %> </h1>
+  <div class="attach">
+  <%= link_to "Learn More", field_experience_path(experience), id: "fieldlink"%>
+  </div>
+ 
+  <h3> Location: <%= experience.location %> </h3>
   <h5>Subject: <%= experience.subject %></h5>
   <h5>Grade Levels:  <%= experience.gradelevels %></h5>
-  <p>  <%= experience.summary %> <br>
+  <br>
   
   <% if logged_in? %>
   <%= link_to "Schedule this Experience", new_field_experience_booking_path(experience), class: "fieldbtn" %>

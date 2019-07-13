@@ -15,7 +15,7 @@ $(document).ready(function() {
     })
 
 
-// //display index on homepage. Did not use constructor just app'd to the DOM
+// //display index on homepage.
     $("#auto").on("click", function(e){
         $("#auto").hide();
        $.get("/field_experiences.json").done(function(json){
@@ -29,6 +29,17 @@ $(document).ready(function() {
          })
         e.preventDefault()
     });
+
+    //show json from a single object
+
+    $("div.attach a").on("click", function(e){
+        $.get(this.href + ".json").done(function(json){
+            let appendDiv = document.getElementById("show" + json.id);
+           $(appendDiv).append(`<p class='experience' style='font-size: 15px'>${json.summary}</p>`)
+        })
+
+        e.preventDefault();
+    })
   
    
 // })

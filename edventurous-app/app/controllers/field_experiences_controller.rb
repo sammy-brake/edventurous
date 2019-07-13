@@ -16,7 +16,14 @@ class FieldExperiencesController < ApplicationController
     end 
 
     def show 
-        @experience = FieldExperience.find_by(params[:id])
+        @experience = FieldExperience.find(params[:id])
+        
+        respond_to do |format|
+
+            format.html 
+            format.json { render json: @experience }
+          
+           end
     end 
 
     def index 

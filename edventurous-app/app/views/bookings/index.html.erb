@@ -1,13 +1,17 @@
 <div class="booking">
 <% if @experience %>
 <h2> View the dates of your past and currently scheduled trips to <%=@experience.title%>  </h2>
+<div id="ajax">
+</div>
 <%end%> 
 </div>
 <ul>
 <% @bookings.each do |booking| %>
+   <% @stringId = booking.id.to_s%>
+    <%@idName = "show" + @stringId%>
 <div class="dates">
-   <%=link_to "#{booking.date.strftime('%b %d, %Y')}: Click for More", href="/field_experiences/#{@experience.id}/bookings/#{booking.id}", id: "hijack"%>
-   <div id="show"></div>
+   <%=link_to "#{booking.date.strftime('%b %d, %Y')}: Click for More", href="/field_experiences/#{@experience.id}/bookings/#{booking.id}"%>
+   <div id=<%=@idName%>></div>
    </div>
 <%end%>
 </ul>
