@@ -30,6 +30,35 @@ $(document).ready(function() {
         e.preventDefault()
     });
 
+// display education experiences and sort 
+$("#sort").on("click", function(e){
+    $("#sort").hide();
+   $.get("/field_experiences.json").done(function(json){
+       json.sort(function(a, b){
+        var titleA = a.title.toUpperCase(); 
+        var titleB = b.title.toUpperCase(); 
+        if (titleA < titleB) {
+          return -1;
+        }
+        if (titleA > titleB) {
+          return 1;
+        }
+      
+        return 0;
+       })
+  
+        json.forEach(function(experience){
+            debugger
+            $("div.experience").append("<h2 class='new'>" + experience["title"] + "</h2>")
+            .append("<h3>" + experience["location"] + "</h3>")
+            .append("<h5>" + experience["subject"] + "</h5>")
+            .append("<h5> Grade Levels: " + experience["gradelevels"] + "</h5>")
+            .append("<p>" + experience["summary"] + "</p>")
+         })
+     })
+    e.preventDefault()
+});
+
     //show json from a single object
 
     $("div.attach a").on("click", function(e){

@@ -21,19 +21,13 @@ $(document).ready(function() {
     })
 
     $("div.dates a").on("click", function(e){
+       
         $.get(this.href + ".json").done(function(json){
             let appendDiv = document.getElementById("show" + json.id)
-            
-            debugger 
             $(appendDiv).append(`<h3>${json["field_experience"]["title"]}</h3>
             <p>${json["field_experience"]["summary"]}</p>
             `)
-            
-            
         })
-        
-        
-        console.log(this);
         e.preventDefault();
     })
 
